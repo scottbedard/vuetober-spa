@@ -1,0 +1,12 @@
+title = "test"
+url = "/:all?*"
+==
+function onStart()
+{
+    $this['vuetober'] = [
+        'env' => app()->env,
+        'token' => Session::token(),
+    ];
+}
+==
+<!DOCTYPE html><html><head><meta charset=utf-8><meta content="IE=edge" http-equiv=X-UA-Compatible><meta name=viewport content="width=device-width,initial-scale=1"><meta name=vuetober content="{{ vuetober | json_encode }}"><title>/Users/stevenbedard/code/vuetober-spa/www/themes/spa</title><link href=/themes/spa/assets/js/about.b8cabc56.js rel=prefetch><link href=/themes/spa/assets/css/app.f0dc147e.css rel=preload as=style><link href=/themes/spa/assets/js/app.91272516.js rel=modulepreload as=script><link href=/themes/spa/assets/js/chunk-vendors.ee1ff458.js rel=modulepreload as=script><link href=/themes/spa/assets/css/app.f0dc147e.css rel=stylesheet></head><body><noscript><strong>We're sorry but /Users/stevenbedard/code/vuetober-spa/www/themes/spa doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script type=module src=/themes/spa/assets/js/chunk-vendors.ee1ff458.js></script><script type=module src=/themes/spa/assets/js/app.91272516.js></script><script>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()},!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script><script src=/themes/spa/assets/js/chunk-vendors-legacy.19368321.js nomodule></script><script src=/themes/spa/assets/js/app-legacy.4b32ff4e.js nomodule></script></body></html>
