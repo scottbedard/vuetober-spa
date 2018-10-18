@@ -36,4 +36,22 @@ module.exports = {
             ],
         };
     },
+    pluginOptions: {
+        karma: {
+            files: [
+                resolve('./tests/unit/setup.js'),
+                resolve('./tests/unit/**/*.spec.js'),
+            ],
+            karmaConfig: {
+                browsers: [
+                    'ChromeHeadless',
+                ],
+                frameworks: [
+                    'mocha',
+                    'sinon-chai',
+                ],
+            },
+        },
+    },
+    runtimeCompiler: isTesting,
 };

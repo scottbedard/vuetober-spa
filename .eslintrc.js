@@ -1,3 +1,4 @@
+/* eslint-disable */
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
@@ -16,7 +17,7 @@ module.exports = {
     rules: {
         'func-names': 0,
         'import/prefer-default-export': 0,
-        indent: ['error', 4],
+        'indent': ['error', 4],
         'max-len': 0,
         'no-console': isProduction ? 'error' : 'off',
         'no-debugger': isProduction ? 'error' : 'off',
