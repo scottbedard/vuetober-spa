@@ -1,26 +1,116 @@
-# spa
+# vuetober-spa
 
-## Project setup
-```
-yarn install
+[![Build](https://img.shields.io/circleci/project/github/scottbedard/vuetober-spa.svg)](https://circleci.com/gh/scottbedard/vuetober-spa)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/scottbedard/vuetober-spa/blob/master/LICENSE)
+
+### Getting Started
+
+This project is an opinionated approach to SPAs within the awesome worlds of [October CMS](https://octobercms.com) and [Vue.js](https://vuejs.org), and is based off of [Vuetober](https://github.com/scottbedard/oc-vuetober-theme). To create a new SPA, clone this repository into your `/themes` directory.
+
+```bash
+# install dependencies
+$ yarn install
+
+# start development server and serve with hot reloading
+$ yarn serve
+
+# build production assets
+$ yarn build
+
+# lint and fix files
+$ yarn lint
+
+# run unit tests
+$ yarn test:unit
+
+# run unit tests, and watch for changes
+$ yarn test:unit -w
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
+### Routing & Layouts
+
+To add routes to your application, register the component within [`src/app/routes.js`](https://github.com/scottbedard/vuetober-spa/blob/master/src/app/routes.js). For more information on routing, please refer to the [vue-router documentation](https://router.vuejs.org).
+
+Layout components control how the page should appear, and should always contain a `<router-view />` component. Currently, there is only one layout located at [`src/layouts/default/default.vue`](https://github.com/scottbedard/vuetober-spa/blob/master/src/layouts/default/default.vue), which provides a basic header and footer. To register a route with this layout, simply add it to the `children` array in the routes file.
+
+### Global Components
+
+To register a component globally, simply add it to the [`src/components/global.js`](https://github.com/scottbedard/vuetober-spa/blob/master/src/components/global.js). The code below demonstrates how to register a global component that is loaded immediately, and one that is only loaded when needed.
+
+```js
+import marginComponent from './containers/margin.vue';
+
+export default {
+    // this component will not be bundle split, and will be available as <v-margin>
+    'v-margin': marginComponent,
+    
+    // for components that aren't needed on the entry pages, or rely on heavy
+    // third party libraries, it's best to lazy-load them with a dynamic import.
+    'v-line-chart': () => import('./charts/line_chart.vue'),
+}
 ```
 
-### Compiles and minifies for production
-```
-yarn run build
+### Unit Testing
+
+This theme comes with several utilities to make testing easier. Make sure to review the [`tests/unit/helpers.js`](https://github.com/scottbedard/vuetober-spa/blob/master/tests/unit/helpers.js) file to see all the utility functions available. To render a component in a test, use the `factory` and `mount` functions. Note that if you're only testing a global component, you do not need to define a custom `mount` function.
+
+```js
+// import the components being tested
+import blogComponent from '@/pages/blog/blog.vue';
+
+// register them with a new vue factory
+const mount = factory({
+    components: {
+        'v-blog': blogComponent,
+    },
+});
+
+describe('blog page', function() {
+    it('displays blog posts', () {
+        // it's best to assign test components to the global "vm" variable
+        // because these components will be destroyed after each test
+        vm = mount({
+            template: `<v-blog />`,
+        });
+        
+        // make assertions here...
+    });
+});
 ```
 
-### Lints and fixes files
-```
-yarn run lint
+One important thing to learn is that all XHR requests made via `axios` are stubbed in the test environment. This in combination with the `stubRequests` helper make it easy to assert your pages are doing what they're supposed to. Below is an example of how to stub an XHR request, and assert that it was made.
+
+```js
+import axios from 'axios';
+
+describe('blog page', function() {
+
+    // using stubRequests from a beforeEach hook is a handy way to reset
+    // your stubs for every test. this helps prevent bad assertions
+    beforeEach(function() {
+        stubRequests({
+            get: {
+                '/api/rainlab/blog/posts': blogPostsFixture,
+            },
+        });
+    });
+    
+    it('fetches blog posts when mounted', function() {
+        vm = mount({
+            template: `<v-blog />`,
+        });
+        
+        expect(axios.get).to.have.been.calledWithMatch('/api/rainlab/blog/posts');
+    });
+});
 ```
 
-### Run your unit tests
-```
-yarn run test:unit
-```
+### Continuous Integration
+
+This theme comes with integrations ready for circleci. To enable it for your repository, simply navigate to `https://circleci.com/gh/:owner/:repo` and click "Follow project".
+
+### License
+
+[MIT](https://github.com/scottbedard/vuetober-spa/blob/master/LICENSE)
+
+Copyright (c) 2018-present, Scott Bedard
