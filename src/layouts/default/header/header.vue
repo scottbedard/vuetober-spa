@@ -4,7 +4,7 @@
 
             <!-- logo -->
             <router-link :to="{ name: 'home' }">
-                <img 
+                <img
                     alt="Vuetober"
                     class="transition-width w-24 md:w-36"
                     data-logo
