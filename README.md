@@ -33,6 +33,10 @@ To add routes to your application, register the component within [`src/app/route
 
 Layout components control how the page should appear, and should always contain a `<router-view />` component. Currently, there is only one layout located at [`src/layouts/default/default.vue`](https://github.com/scottbedard/vuetober-spa/blob/master/src/layouts/default/default.vue), which provides a basic header and footer. To register a route with this layout, simply add it to the `children` array in the routes file.
 
+### Styling
+
+This theme leverages [Tailwind CSS](https://tailwindcss.com), a utility-first framework that maximizes reuseability and rendering performance. If you've never used this framework before, I highly recommend giving it a try. If used properly, you can usually avoid writing CSS entirely, and your site will have a microscopic CSS footprint. Also being used is [Purgecss](https://github.com/FullHuman/purgecss), which removes any unused classes from built files. This means you can feel free to enable as many Tailwind utilities as you want with no performance overhead. The only downside to doing this, is that Purgecss is not able to recognize classes that are assembled at runtime. To get around this limitation, you may whitelist classes by adding them to [`src/scss/whitelist.js`](https://github.com/scottbedard/vuetober-spa/blob/master/src/scss/whitelist.js).
+
 ### Global Components
 
 To register a component globally, simply add it to the [`src/components/global.js`](https://github.com/scottbedard/vuetober-spa/blob/master/src/components/global.js). The code below demonstrates how to register a global component that is loaded immediately, and one that is only loaded when needed.
