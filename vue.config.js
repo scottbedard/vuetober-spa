@@ -10,6 +10,12 @@ const isTesting = process.env.NODE_ENV === 'test';
 const resolve = (...args) => path.resolve(__dirname, ...args);
 
 module.exports = {
+    chainWebpack(config) {
+        // mock all axios calls in our testing environment
+        if (isTesting) {
+            config.resolve.alias.set('axios$', resolve('./tests/unit/mocks/axios'));
+        }
+    },
     configureWebpack() {
         return {
             plugins: [
@@ -39,8 +45,7 @@ module.exports = {
     pluginOptions: {
         karma: {
             files: [
-                resolve('./tests/unit/setup.js'),
-                resolve('./tests/unit/**/*.spec.js'),
+                resolve('./tests/unit/index.js'),
             ],
             karmaConfig: {
                 browsers: [

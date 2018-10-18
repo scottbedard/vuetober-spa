@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 //
 // boot up our application
 //
@@ -16,7 +18,9 @@ const vms = ['vm' /* 'vm1', 'vm2', etc... */];
 // global setup
 //
 beforeEach(function() {
-    vms.forEach(name => window[name] = undefined)
+    axios.reset();
+
+    vms.forEach(name => window[name] = undefined);
 });
 
 //
@@ -27,5 +31,11 @@ afterEach(function() {
         if (window[name] && typeof window[name].$destroy === 'function') {
             window[name].$destroy();
         }
-    })
+    });
 });
+
+//
+// require all spec files
+//
+const specs = require.context('./specs', true, /\.spec\.js$/);
+specs.keys().forEach(specs);
