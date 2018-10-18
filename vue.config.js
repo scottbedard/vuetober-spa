@@ -52,9 +52,21 @@ module.exports = {
                 browsers: [
                     'ChromeHeadless',
                 ],
+                coverageReporter: {
+                    dir: './coverage',
+                    reporters: [
+                        { type: 'lcov', subdir: '.' },
+                        { type: 'text-summary' },
+                    ],
+                },
                 frameworks: [
                     'mocha',
                     'sinon-chai',
+                ],
+                reporters: [
+                    'spec',
+                    'coverage',
+                    'json',
                 ],
             },
         },

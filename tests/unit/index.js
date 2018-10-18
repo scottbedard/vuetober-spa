@@ -39,3 +39,15 @@ afterEach(function() {
 //
 const specs = require.context('./specs', true, /\.spec\.js$/);
 specs.keys().forEach(specs);
+
+//
+// require all files that should be included in code coverage
+//
+const coverageBlacklist = [
+    './main.js',
+    './app/routes.js',
+];
+
+const files = require.context('../../src', true, /^\.\/(.*)(\.vue$|\.js$)/);
+
+files.keys().filter(file => coverageBlacklist.indexOf(file) === -1).forEach(files);

@@ -15,6 +15,10 @@ jobs:
           name: Test
           command: |
             yarn test:unit
+      - run:
+          name: Codecov
+          command: |
+            ./node_modules/.bin/codecov
       - save_cache:
           key: -v3-{{ checksum "package.json" }}
           paths:
