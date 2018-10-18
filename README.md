@@ -109,6 +109,12 @@ describe('blog page', function() {
 });
 ```
 
+### Production Builds
+
+By default, building production assets will create two bundles. The first is a "modern" bundle, which is designed to target ever-green browsers (Chrome, Edge, Firefox, Safari, etc...). The second, is a "legacy" bundle, which transpiles code for older browsers like IE. To learn more about how this works, please refer to the [vue-cli documentation](https://cli.vuejs.org/guide/browser-compatibility.html#modern-mode).
+
+Building these two bundles results in better runtime performance, but will increase the amount of time it takes to build. If you do not wish to use this feature, remove the [`--modern`](https://github.com/scottbedard/vuetober-spa/blob/master/package.json#L7) flag from the build command.
+
 ### Continuous Integration
 
 This theme comes with integrations ready for circleci. To enable it for your repository, simply navigate to `https://circleci.com/gh/:owner/:repo` and click "Follow project".
