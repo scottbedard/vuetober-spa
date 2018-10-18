@@ -4,6 +4,13 @@ import routes from '@/app/routes';
 import { factory as spyfuVueFactory } from 'spyfu-vue-factory';
 
 //
+// click an element
+//
+window.click = function click(el) {
+    el.click();
+}
+
+//
 // create a vue factory
 //
 window.factory = function factory(options = {}) {
