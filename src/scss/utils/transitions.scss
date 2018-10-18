@@ -1,0 +1,14 @@
+$duration: 150ms;
+$easing: ease-in-out;
+
+.transition-height {
+    transition: height $duration $easing;
+}
+
+.transition-padding {
+    transition: padding $duration $easing;
+}
+
+.transition-width {
+    transition: width $duration $easing;
+}
