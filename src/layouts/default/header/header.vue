@@ -1,6 +1,6 @@
 <template>
-    <header class="flex items-center h-16 transition-height md:h-20">
-        <v-margin class="flex flex-1 justify-between" padded>
+    <header class="bg-grey-lighter">
+        <v-margin class="flex justify-between py-4" padded>
 
             <!-- logo -->
             <router-link :to="{ name: 'home' }">
@@ -18,7 +18,7 @@
             </div>
 
             <!-- desktop nav -->
-            <div class="hidden md:block">
+            <div class="hidden items-center md:flex">
                 <v-desktop-nav />
             </div>
         </v-margin>

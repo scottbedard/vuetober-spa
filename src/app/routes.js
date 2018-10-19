@@ -8,6 +8,15 @@ export default [
     {
         children: [
             //
+            // components
+            //
+            {
+                name: 'components',
+                path: '/components',
+                component: () => import('@/pages/components/components.vue' /* webpackChunkName: "components" */),
+            },
+
+            //
             // home
             //
             {

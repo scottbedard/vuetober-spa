@@ -1,8 +1,16 @@
 $duration: 150ms;
 $easing: ease-in-out;
 
+.transition-color {
+    transition: color $duration $easing;
+}
+
 .transition-height {
     transition: height $duration $easing;
+}
+
+.transition-opacity {
+    transition: opacity $duration $easing;
 }
 
 .transition-padding {

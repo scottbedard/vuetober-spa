@@ -38,7 +38,7 @@ const remSizes = Array(100).fill(0).reduce((acc, n, i) => {
   let colors = {
     'transparent': 'transparent',
   
-    'black': '#22292f',
+    'black': '#000000',
     'grey-darkest': '#3d4852',
     'grey-darker': '#606f7b',
     'grey-dark': '#8795a1',

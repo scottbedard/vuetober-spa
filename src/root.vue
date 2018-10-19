@@ -3,6 +3,8 @@
 
 <template>
     <div>
-        <router-view />
+        <v-fade-transition>
+            <router-view />
+        </v-fade-transition>
     </div>
 </template>

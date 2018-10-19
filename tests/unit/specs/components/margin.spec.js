@@ -1,5 +1,6 @@
-import axios from 'axios';
-
+//
+// specs
+//
 describe('<v-margin>', function() {
     it('renders default slot content', function() {
         vm = mount({

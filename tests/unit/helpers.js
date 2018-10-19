@@ -23,6 +23,28 @@ window.factory = function factory(options = {}) {
 }
 
 //
+// simulate an input event
+//
+window.input = function (value, el) {
+    el.value = value;
+
+    return simulate('input', el);
+}
+
+//
 // default mount function
 //
 window.mount = factory();
+
+//
+// simulate an event
+//
+window.simulate = function (name, el, setupFn) {
+    const e = new Event(name);
+
+    if (setupFn) {
+        setupFn(e);
+    }
+
+    return el.dispatchEvent(e);
+};
