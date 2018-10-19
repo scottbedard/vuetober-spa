@@ -4,7 +4,7 @@
         <v-header />
 
         <!-- content -->
-        <main class="flex-1 py-4" role="main">
+        <main class="flex-1 py-8" role="main">
             <v-collapse-transition>
                 <router-view />
             </v-collapse-transition>

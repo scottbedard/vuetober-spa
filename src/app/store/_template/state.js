@@ -1,0 +1,6 @@
+//
+// state
+//
+export default {
+
+};

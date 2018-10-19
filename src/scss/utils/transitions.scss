@@ -1,6 +1,10 @@
 $duration: 150ms;
 $easing: ease-in-out;
 
+.transition-border-color {
+    transition: border-color $duration $easing;
+}
+
 .transition-color {
     transition: color $duration $easing;
 }

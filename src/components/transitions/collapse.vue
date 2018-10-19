@@ -75,7 +75,7 @@ export default {
     functional: true,
     props: {
         duration: {
-            default: 350,
+            default: 250,
             type: Number,
         },
         fadeOutCurve: {
