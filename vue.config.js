@@ -66,7 +66,6 @@ module.exports = {
                 reporters: [
                     'spec',
                     'coverage',
-                    'json',
                 ],
             },
         },
