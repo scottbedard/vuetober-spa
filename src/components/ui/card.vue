@@ -1,3 +1,12 @@
+<style lang="scss" scoped>
+    .v-card {
+        /deep/ .v-input {
+            box-shadow: none;
+            background-color: config('colors.grey-lighter');
+        }
+    }
+</style>
+
 <script>
 import { bindAll } from 'spyfu-vue-functional';
 
@@ -11,7 +20,7 @@ export default {
             bindings.class.push('p-4');
         } 
 
-        return <div class="bg-white rounded shadow" {...bindings}>
+        return <div class="v-card bg-white rounded shadow" {...bindings}>
             {context.slots().default}
         </div>;
     },

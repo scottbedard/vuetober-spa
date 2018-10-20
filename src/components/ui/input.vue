@@ -29,7 +29,7 @@ export default {
         }
 
         return <input
-            class="p-4 rounded shadow w-full focus:outline-none"
+            class="v-input p-4 rounded shadow w-full focus:outline-none"
             domPropsValue={value}
             {...bindings}
         />;
