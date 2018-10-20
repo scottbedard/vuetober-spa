@@ -34,12 +34,22 @@ import examples from './examples';
 export default {
     data() {
         return {
-            filter: '',
+            filter: this.$route.query.filter || '',
         };
     },
     computed: {
         examples() {
-            return Object.keys(examples).reduce((acc, key) => acc.concat({ key, component: examples[key] }), []);
+            return Object.keys(examples)
+                .filter(key => key.includes(this.filter))
+                .sort()
+                .reduce((acc, key) => {
+                    return acc.concat({ key, component: examples[key] })
+                }, []);
+        },
+    },
+    watch: {
+        filter() {
+            this.$router.replace({ query: { filter: this.filter || undefined }});
         },
     },
 };
