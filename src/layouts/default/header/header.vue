@@ -12,27 +12,36 @@
                 />
             </router-link>
 
-            <!-- mobile nav -->
-            <div class="md:hidden">
-                <v-mobile-nav />
-            </div>
+            <v-fade-transition>
+                <!-- mobile nav -->
+                <div v-if="isMobile" key="mobile">
+                    <v-mobile-nav />
+                </div>
 
-            <!-- desktop nav -->
-            <div class="hidden items-center md:flex">
-                <v-desktop-nav />
-            </div>
+                <!-- desktop nav -->
+                <div v-else class="flex items-center" key="desktop">
+                    <v-desktop-nav />
+                </div>
+            </v-fade-transition>
         </v-margin>
     </header>
 </template>
 
 <script>
-import mobileNavComponent from './mobile_nav/mobile_nav.vue';
-import desktopNavComponent from './desktop_nav/desktop_nav.vue';
+import { mapState } from 'vuex';
 
 export default {
     components: {
-        'v-desktop-nav': desktopNavComponent,
-        'v-mobile-nav': mobileNavComponent,
+        'v-desktop-nav': () => import('./desktop_nav/desktop_nav.vue'),
+        'v-mobile-nav': () => import('./mobile_nav/mobile_nav.vue'),
+    },
+    computed: {
+        ...mapState('browser', {
+            windowInnerWidth: state => state.dimensions.width,
+        }),
+        isMobile() {
+            return this.windowInnerWidth < 768;
+        },
     },
 };
 </script>

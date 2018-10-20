@@ -12,14 +12,15 @@
         <!-- filter -->
         <v-input
             v-model="filter"
-            class="mb-8"
+            class="mb-16"
             placeholder="Filter components..."
         />
 
         <!-- examples -->
         <div>
-            <div 
-                v-for="(example, i) in examples"
+            <div
+                v-for="example in examples"
+                class="mb-16"
                 :key="example.key">
                 <component :is="example.component" />
             </div>

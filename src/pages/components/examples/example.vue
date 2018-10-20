@@ -19,7 +19,7 @@ export default {
             <div>
                 {slots.default}
             </div>
-        </section>
+        </section>;
     },
     functional: true,
     props: {

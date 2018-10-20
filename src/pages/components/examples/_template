@@ -1,6 +1,6 @@
 <template>
     <v-example title="<v-input>">
-        An awesome component.
+        <p>An awesome component.</p>
     </v-example>
 </template>
 

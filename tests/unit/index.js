@@ -18,8 +18,6 @@ const vms = ['vm' /* 'vm1', 'vm2', etc... */];
 // global setup
 //
 beforeEach(function() {
-    axios.reset();
-
     vms.forEach(name => window[name] = undefined);
 });
 
@@ -27,6 +25,9 @@ beforeEach(function() {
 // global teardown
 //
 afterEach(function() {
+    axios.reset();
+    sandbox.reset();
+
     vms.forEach(name => {
         if (window[name] && typeof window[name].$destroy === 'function') {
             window[name].$destroy();

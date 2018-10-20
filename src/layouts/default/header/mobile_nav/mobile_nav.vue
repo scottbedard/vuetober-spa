@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <nav>
         Mobile nav!
-    </div>
+    </nav>
 </template>

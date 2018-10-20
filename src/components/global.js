@@ -1,3 +1,4 @@
+import buttonComponent from './ui/button.vue';
 import collapseTransitionComponent from './transitions/collapse.vue';
 import fadeTransitionComponent from './transitions/fade.vue';
 import inputComponent from './ui/input.vue';
@@ -18,5 +19,6 @@ export default {
     //
     // ui
     //
+    'v-button': buttonComponent,
     'v-input': inputComponent,
 };

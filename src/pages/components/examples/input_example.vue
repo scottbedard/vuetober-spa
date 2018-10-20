@@ -7,7 +7,7 @@
             class="mb-1"
             placeholder="Enter your name"
         />
-        
+
         <div class="text-grey-dark text-xs">
             Your name is {{ name }}
         </div>

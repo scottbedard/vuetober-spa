@@ -1,8 +1,7 @@
-import inputExampleComponent from './input_example.vue';
-
 //
 // examples
 //
 export default {
-    '<v-input>': inputExampleComponent,
+    '<v-button>': () => import('./button_example.vue'),
+    '<v-input>': () => import('./input_example.vue'),
 };

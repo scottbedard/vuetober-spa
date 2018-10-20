@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import modules from '@/app/store';
 import routes from '@/app/routes';
+import sinon from 'sinon';
 import { factory as spyfuVueFactory } from 'spyfu-vue-factory';
 
 //
@@ -37,6 +38,11 @@ window.input = function (value, el) {
 window.mount = factory();
 
 //
+// no-op
+//
+window.noop = () => {};
+
+//
 // simulate an event
 //
 window.simulate = function (name, el, setupFn) {
@@ -48,3 +54,11 @@ window.simulate = function (name, el, setupFn) {
 
     return el.dispatchEvent(e);
 };
+
+//
+// test sandbox
+// this is cleaned up after each test
+//
+window.sandbox = sinon.createSandbox();
+window.spy = sandbox.spy;
+window.stub = sandbox.stub;

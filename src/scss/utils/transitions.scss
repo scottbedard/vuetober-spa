@@ -1,6 +1,13 @@
 $duration: 150ms;
 $easing: ease-in-out;
 
+//
+// single transitions
+//
+.transition-bg {
+    transition: background $duration $easing;
+}
+
 .transition-border-color {
     transition: border-color $duration $easing;
 }
@@ -23,4 +30,13 @@ $easing: ease-in-out;
 
 .transition-width {
     transition: width $duration $easing;
+}
+
+//
+// transition pairs
+//
+.transition-bg.transition-color {
+    transition: 
+        background $duration $easing, 
+        color $duration $easing;
 }
