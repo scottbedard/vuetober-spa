@@ -4,7 +4,7 @@
 
         <v-input
             v-model="name"
-            class="mb-1"
+            class="mb-2"
             placeholder="Enter your name"
         />
 

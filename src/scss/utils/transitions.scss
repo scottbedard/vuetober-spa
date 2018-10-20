@@ -28,6 +28,10 @@ $easing: ease-in-out;
     transition: padding $duration $easing;
 }
 
+.transition-shadow {
+    transition: box-shadow $duration $easing;
+}
+
 .transition-width {
     transition: width $duration $easing;
 }

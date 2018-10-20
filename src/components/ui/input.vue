@@ -29,7 +29,7 @@ export default {
         }
 
         return <input
-            class="border border-grey-light p-4 rounded transition-border-color w-full focus:border-grey focus:outline-none"
+            class="p-4 rounded shadow w-full focus:outline-none"
             domPropsValue={value}
             {...bindings}
         />;
