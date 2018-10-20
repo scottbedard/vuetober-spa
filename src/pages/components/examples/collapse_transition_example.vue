@@ -17,7 +17,7 @@
             Toggle
         </v-button>
 
-        <div class="border-4 border-dashed border-grey p-4">
+        <div class="border-4 border-dashed p-4">
             <v-collapse-transition>
                 <div v-if="value" key="a">
                     <p class="mb-4">Everybody's different. Trees are different. Let them all be individuals. Nice little clouds playing around in the sky. All kinds of happy little splashes. There it is. The man who does the best job is the one who is happy at his job.</p>
