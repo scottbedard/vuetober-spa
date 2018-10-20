@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import exampleComponent from './example.vue';
+import exampleComponent from '../example.vue';
 
 export default {
     data() {
