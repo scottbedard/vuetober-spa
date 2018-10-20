@@ -1,6 +1,6 @@
 <style lang="scss" scoped>
     section {
-        /deep/ p {
+        /deep/ > div > p {
             margin-bottom: 1rem;
         }
     }

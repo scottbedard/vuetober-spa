@@ -1779,6 +1779,10 @@ caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
 
+chai-dom@*:
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/chai-dom/-/chai-dom-1.8.1.tgz#ce7978ac93d623314742aeb6ada86c9e4d8736de"
+
 chai@^4.1.2:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/chai/-/chai-4.2.0.tgz#760aa72cf20e3795e84b12877ce0e83737aa29e5"
@@ -4878,6 +4882,12 @@ jsprim@^1.2.2:
 just-extend@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/just-extend/-/just-extend-3.0.0.tgz#cee004031eaabf6406da03a7b84e4fe9d78ef288"
+
+karma-chai-dom@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/karma-chai-dom/-/karma-chai-dom-1.1.0.tgz#1b36514822cbb5fa749d007de76e4221ae34cfa4"
+  dependencies:
+    chai-dom "*"
 
 karma-chai@^0.1.0:
   version "0.1.0"

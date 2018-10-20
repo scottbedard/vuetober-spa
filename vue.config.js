@@ -61,6 +61,7 @@ module.exports = {
                 },
                 frameworks: [
                     'mocha',
+                    'chai-dom',
                     'sinon-chai',
                 ],
                 reporters: [
