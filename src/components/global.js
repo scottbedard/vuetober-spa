@@ -1,4 +1,5 @@
 import buttonComponent from './ui/button.vue';
+import cardComponent from './ui/card.vue';
 import collapseTransitionComponent from './transitions/collapse.vue';
 import fadeTransitionComponent from './transitions/fade.vue';
 import gridComponent from './containers/grid.vue';
@@ -24,5 +25,6 @@ export default {
     // ui
     //
     'v-button': buttonComponent,
+    'v-card': cardComponent,
     'v-input': inputComponent,
 };
