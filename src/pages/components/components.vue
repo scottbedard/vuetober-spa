@@ -48,8 +48,11 @@ export default {
         },
     },
     watch: {
-        filter() {
+        filter(filter) {
             this.$router.replace({ query: { filter: this.filter || undefined }});
+        },
+        $route() {
+            this.filter = this.$route.query.filter || '';
         },
     },
 };
