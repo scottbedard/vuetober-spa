@@ -1,7 +1,6 @@
 <template>
     <footer class="py-4">
-        <v-margin padded>
-            Hello from the footer!
+        <v-margin padded>@todo: create a basic responsive footer
         </v-margin>
     </footer>
 </template>
