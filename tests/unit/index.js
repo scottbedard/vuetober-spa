@@ -25,6 +25,8 @@ beforeEach(function() {
 // global teardown
 //
 afterEach(function() {
+    console.log(axios);
+    
     axios.reset();
     sandbox.reset();
 
