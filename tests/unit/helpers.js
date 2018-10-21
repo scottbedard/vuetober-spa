@@ -8,7 +8,11 @@ import { factory as spyfuVueFactory } from 'spyfu-vue-factory';
 // click an element
 //
 window.click = function click(el) {
-    el.click();
+    if (typeof el.click === 'function') {
+        el.click();
+    } else {
+        simulate('click', el);
+    }
 }
 
 //
