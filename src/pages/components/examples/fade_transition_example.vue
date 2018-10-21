@@ -1,7 +1,7 @@
 <template>
     <v-example title="<v-fade-transition>">
         <p class="mb-8">
-            A simple fade transition. This is preferred over 
+            A simple fade transition. This is preferred over
             <router-link
                 class="font-mono"
                 :to="{

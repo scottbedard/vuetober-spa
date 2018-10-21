@@ -43,14 +43,12 @@ export default {
             return Object.keys(examples)
                 .filter(key => key.includes(this.filter))
                 .sort()
-                .reduce((acc, key) => {
-                    return acc.concat({ key, component: examples[key] })
-                }, []);
+                .reduce((acc, key) => acc.concat({ key, component: examples[key] }), []);
         },
     },
     watch: {
         filter(filter) {
-            this.$router.replace({ query: { filter: this.filter || undefined }});
+            this.$router.replace({ query: { filter: filter || undefined } });
         },
         $route() {
             this.filter = this.$route.query.filter || '';

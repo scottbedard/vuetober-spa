@@ -1,7 +1,7 @@
 <template>
     <v-example title="<v-grid> &amp; <v-grid-cell>">
         <p>
-            A flexbox based 12 column grid. Notice that grid's padding prop spaces the 
+            A flexbox based 12 column grid. Notice that grid's padding prop spaces the
             cells apart from one another, but does not space cells from the grid's border.
             It is a better practice to style the elements inside of grids rather than
             the grid or cell itself.

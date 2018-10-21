@@ -25,29 +25,31 @@ function iconEl(h, context) {
     if (icon) {
         return <i class={`fa fa-${icon} pointer-events-none pl-4`} />;
     }
+
+    return undefined;
 }
 
 export default {
     render(h, context) {
         const bindings = bindAll(context);
-        const inputBindings = { class: [], on: {} }
+        const inputBindings = { class: [], on: {} };
         const { icon, placeholder, value } = context.props;
 
         // icon
         if (icon) {
-            bindings.on.click = function(e) {
+            bindings.on.click = function (e) {
                 const input = e.target.querySelector('input');
 
                 if (input) {
                     input.focus();
                 }
-            }
+            };
         }
 
         // interface with v-model
         if (isFunction(context.listeners.input)) {
             inputBindings.on.input = e => context.listeners.input(e.target.value);
-        
+
             delete bindings.on.input;
         }
 
@@ -61,7 +63,7 @@ export default {
                     {...inputBindings}
                 />
             </div>
-        </div>
+        </div>;
     },
     functional: true,
     props: {

@@ -4,14 +4,14 @@
             margin: -0.5rem;
             width: calc(100% + 1rem);
         }
-        
+
         > .v-grid-inner > .v-grid {
             padding: 0.5rem;
         }
     }
-    
+
     .v-grid-inner {
-        
+
     }
 </style>
 
@@ -21,12 +21,14 @@ import { bindAll } from 'spyfu-vue-functional';
 export default {
     render(h, context) {
         const bindings = bindAll(context);
-        const { sm, md, lg, xl, padded } = context.props;
+        const {
+            sm, md, lg, xl,
+        } = context.props;
 
         // breakpoints
         if (sm) {
             bindings.class.push(`sm:w-${sm}/12`);
-        } 
+        }
 
         if (md) {
             bindings.class.push(`md:w-${md}/12`);
@@ -58,6 +60,6 @@ export default {
         xl: {
             type: [Number, String],
         },
-    }
+    },
 };
 </script>

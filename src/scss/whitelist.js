@@ -3,6 +3,10 @@
 // classes that are being removed, you can whitelist them here.
 // see docs here: https://www.purgecss.com/whitelisting.html
 module.exports = [
+    'pl-4',
+
+    // these classes are necessary for <v-grid> and <v-grid-cell>
+    // it is recommended that you comment out the unused ones.
     'sm:w-1/12',
     'sm:w-2/12',
     'sm:w-3/12',
@@ -15,7 +19,6 @@ module.exports = [
     'sm:w-10/12',
     'sm:w-11/12',
     'sm:w-12/12',
-    
     'md:w-1/12',
     'md:w-2/12',
     'md:w-3/12',
@@ -28,7 +31,6 @@ module.exports = [
     'md:w-10/12',
     'md:w-11/12',
     'md:w-12/12',
-    
     'lg:w-1/12',
     'lg:w-2/12',
     'lg:w-3/12',
@@ -41,7 +43,6 @@ module.exports = [
     'lg:w-10/12',
     'lg:w-11/12',
     'lg:w-12/12',
-
     'xl:w-1/12',
     'xl:w-2/12',
     'xl:w-3/12',

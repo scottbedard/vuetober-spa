@@ -2,7 +2,7 @@
     <v-example title="<v-collapse-transition>">
         <p class="mb-8">
             A fade transition for elements of unknown height. If you do not need a smooth transition in height, consider using a
-            <router-link 
+            <router-link
                 class="font-mono"
                 :to="{ query: { filter: 'v-fade-transition' } }">
                 &lt;v-fade-transition&gt;
@@ -10,7 +10,7 @@
             transition instead.
         </p>
 
-        <v-button 
+        <v-button
             class="mb-8"
             size="sm"
             @click="value = !value">
