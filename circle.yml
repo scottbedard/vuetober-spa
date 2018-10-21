@@ -16,6 +16,10 @@ jobs:
           command: |
             yarn test:unit
       - run:
+          name: Deploy
+          command: |
+            curl https://envoyer.io/deploy/Ld5MIXSOsl51L33JSZgA0hOBiIOXDv5iwqMSW9wQ
+      - run:
           name: Codecov
           command: |
             ./node_modules/.bin/codecov

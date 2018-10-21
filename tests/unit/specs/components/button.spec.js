@@ -4,15 +4,10 @@ describe('<v-button>', function() {
 
         const vm = mount({
             methods: { 
-                onClick() {
-                    console.log('im hit!');
-                    onClick();
-                },
+                onClick,
             },
             template: `<v-button @click="onClick" />`,
         });
-
-        console.log(vm.$el);
 
         click(vm.$el);
 
