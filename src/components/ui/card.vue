@@ -1,6 +1,6 @@
 <style lang="scss" scoped>
     .v-card {
-        /deep/ .v-input {
+        /deep/ .v-input > div {
             box-shadow: none;
             background-color: config('colors.grey-lighter');
         }

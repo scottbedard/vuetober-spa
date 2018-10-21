@@ -13,6 +13,7 @@
         <v-input
             v-model="filter"
             class="mb-16"
+            icon="search"
             placeholder="Filter components..."
         />
 

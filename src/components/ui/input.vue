@@ -18,24 +18,59 @@
 import { bindAll } from 'spyfu-vue-functional';
 import { isFunction } from 'lodash-es';
 
+// icon
+function iconEl(h, context) {
+    const { icon } = context.props;
+
+    if (icon) {
+        return <i class={`fa fa-${icon} pointer-events-none pl-4`} />;
+    }
+}
+
 export default {
     render(h, context) {
         const bindings = bindAll(context);
-        const { value } = context.props;
+        const inputBindings = { class: [], on: {} }
+        const { icon, placeholder, value } = context.props;
+
+        // icon
+        if (icon) {
+            bindings.on.click = function(e) {
+                const input = e.target.querySelector('input');
+
+                if (input) {
+                    input.focus();
+                }
+            }
+        }
 
         // interface with v-model
         if (isFunction(context.listeners.input)) {
-            bindings.on.input = e => context.listeners.input(e.target.value);
+            inputBindings.on.input = e => context.listeners.input(e.target.value);
+        
+            delete bindings.on.input;
         }
 
-        return <input
-            class="v-input p-4 rounded shadow w-full focus:outline-none"
-            domPropsValue={value}
-            {...bindings}
-        />;
+        return <div class="v-input" {...bindings}>
+            <div class="bg-white cursor-text flex items-center justify-center rounded shadow text-grey">
+                {iconEl(h, context)}
+                <input
+                    class="bg-transparent p-4 w-full focus:outline-none"
+                    domPropsValue={value}
+                    placeholder={placeholder}
+                    {...inputBindings}
+                />
+            </div>
+        </div>
     },
     functional: true,
     props: {
+        icon: {
+            type: String,
+        },
+        placeholder: {
+            type: String,
+        },
         value: {
             default: '',
             type: [Number, String],
