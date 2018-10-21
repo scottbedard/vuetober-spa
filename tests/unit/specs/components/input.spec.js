@@ -7,8 +7,10 @@ describe('<v-input>', function() {
             template: `<v-input placeholder="foo" />`,
         });
 
-        expect(vm.$el.tagName).to.equal('INPUT');
-        expect(vm.$el.getAttribute('placeholder')).to.equal('foo');
+        const inputEl = vm.$el.querySelector('input');
+
+        expect(inputEl).not.to.be.null;
+        expect(inputEl.getAttribute('placeholder')).to.equal('foo');
     });
 
     it('interfaces with v-model', function() {
@@ -20,10 +22,12 @@ describe('<v-input>', function() {
             },
             template: `<v-input v-model="value" />`,
         });
-        
-        expect(vm.$el.value).to.equal('foo');
 
-        input('bar', vm.$el);
+        const inputEl = vm.$el.querySelector('input');
+        
+        expect(inputEl.value).to.equal('foo');
+
+        input('bar', inputEl);
         
         expect(vm.value).to.equal('bar');
     });
