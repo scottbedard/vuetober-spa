@@ -1,9 +1,11 @@
 //
 // state
 //
-export default {
-    form: {
-        username: '',
-        password: '',
-    },
-};
+export default function () {
+    return {
+        form: {
+            username: '',
+            password: '',
+        },
+    };
+}

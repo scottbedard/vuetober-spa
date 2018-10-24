@@ -11,6 +11,7 @@
                 <v-input
                     v-model="username"
                     class="mb-4"
+                    data-username
                     icon="user"
                     placeholder="Enter Username"
                 />
@@ -19,6 +20,7 @@
                 <v-input
                     v-model="password"
                     class="mb-4"
+                    data-password
                     icon="key"
                     placeholder="Password"
                 />
