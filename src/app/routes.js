@@ -24,6 +24,18 @@ export default [
                 path: '/',
                 component: () => import('@/pages/home/home.vue' /* webpackChunkName: "home" */),
             },
+
+            //
+            // signin
+            //
+            {
+                meta: {
+                    auth: false,
+                },
+                name: 'signin',
+                path: '/signin',
+                component: () => import('@/pages/signin/signin.vue' /* webpackChunkName: "signin" */),
+            },
         ],
         path: '',
         component: defaultLayoutComponent,
