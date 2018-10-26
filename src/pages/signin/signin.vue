@@ -9,11 +9,12 @@
             <form @submit.prevent="onSubmit">
                 <!-- username -->
                 <v-input
-                    v-model="username"
+                    v-model="email"
                     class="mb-4"
-                    data-username
-                    icon="user"
-                    placeholder="Enter Username"
+                    data-email
+                    icon="envelope"
+                    placeholder="Email Address"
+                    type="email"
                 />
 
                 <!-- password -->
@@ -23,6 +24,7 @@
                     data-password
                     icon="key"
                     placeholder="Password"
+                    type="password"
                 />
 
                 <!-- submit -->
@@ -46,16 +48,22 @@ export default {
     },
     computed: {
         ...mapTwoWayState('signin', {
-            username: 'setUsername',
-            password: 'setPassword',
+            'form.email': 'setEmail',
+            'form.password': 'setPassword',
         }),
     },
     methods: {
         onSubmit() {
             this.$store.dispatch('user/signin', {
-                login: this.username,
+                login: this.email,
                 password: this.password,
                 remember: false, // <- @todo: support remembered logins
+            }).then(() => {
+                // success
+                this.$router.push({ name: 'home' });
+            }, (err) => {
+                // failed
+                console.log('Authentication failed:', err.response.data.message);
             });
         },
     },

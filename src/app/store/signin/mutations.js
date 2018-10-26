@@ -6,7 +6,7 @@ import defaultState from './state';
 //
 export default {
     ...simpleSetters({
-        setUsername: 'form.username',
+        setEmail: 'form.email',
         setPassword: 'form.password',
     }),
 

@@ -4,7 +4,7 @@
 export default function () {
     return {
         form: {
-            username: '',
+            email: '',
             password: '',
         },
     };

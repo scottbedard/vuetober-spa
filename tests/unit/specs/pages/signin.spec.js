@@ -1,3 +1,4 @@
+import axios from 'axios';
 import signinComponent from '@/pages/signin/signin.vue';
 
 //
@@ -13,6 +14,14 @@ const mount = factory({
 // specs
 //
 describe('signin page', function() {
+    beforeEach(function() {
+        stubRequests({
+            post: {
+                '/api/givingteam/auth/signin': true,
+            },
+        });
+    });
+
     it('resets the store on mount', function() {
         let commit;
 
@@ -26,21 +35,32 @@ describe('signin page', function() {
         expect(commit).to.have.been.calledWith('signin/reset');
     });
 
-    it('redirects authenticated users to the home page');
-
     it('syncs the form with vuex state', function() {
         vm = mount({
             template: `<v-signin />`,
         });
 
-        input('Somebody', vm.$el.querySelector('[data-username] input'));
+        input('foo@bar.com', vm.$el.querySelector('[data-email] input'));
         input('abc123', vm.$el.querySelector('[data-password] input'));
 
         expect(vm.$store.state.signin.form).to.deep.equal({
-            username: 'Somebody',
+            email: 'foo@bar.com',
             password: 'abc123',
         });
     });
 
-    it('logs the user in when the form is submitted');
+    it('logs the user in when the form is submitted', function() {
+        vm = mount({
+            template: `<v-signin />`,
+        });
+
+        submit(vm.$el.querySelector('form'));
+
+        expect(axios.post).to.have.been.calledWithMatch(
+            '/api/givingteam/auth/signin',
+            {
+                // @todo: add preventInitialization helpers and assert payload is correct
+            }
+        );
+    });
 });
