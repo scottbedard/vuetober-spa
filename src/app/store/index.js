@@ -1,5 +1,6 @@
 import browser from './browser';
 import signin from './signin';
+import user from './user';
 
 //
 // modules
@@ -7,4 +8,5 @@ import signin from './signin';
 export default {
     browser,
     signin,
+    user,
 };

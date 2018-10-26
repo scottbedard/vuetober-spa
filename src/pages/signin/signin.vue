@@ -6,7 +6,7 @@
                 Sign In
             </h1>
 
-            <form @submit="onSubmit">
+            <form @submit.prevent="onSubmit">
                 <!-- username -->
                 <v-input
                     v-model="username"
@@ -26,9 +26,11 @@
                 />
 
                 <!-- submit -->
-                <v-button type="submit">
-                    Submit
-                </v-button>
+                <div class="text-right">
+                    <v-button type="submit">
+                        Submit
+                    </v-button>
+                </div>
             </form>
         </v-card>
     </v-margin>
@@ -50,7 +52,11 @@ export default {
     },
     methods: {
         onSubmit() {
-            // ...
+            this.$store.dispatch('user/signin', {
+                login: this.username,
+                password: this.password,
+                remember: false, // <- @todo: support remembered logins
+            });
         },
     },
 };
