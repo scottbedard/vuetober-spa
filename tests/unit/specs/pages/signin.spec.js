@@ -51,7 +51,17 @@ describe('signin page', function() {
 
     it('logs the user in when the form is submitted', function() {
         vm = mount({
+            beforeCreate() {
+                preventInitialization(this);
+            },
             template: `<v-signin />`,
+        }, {
+            signin: {
+                form: {
+                    email: 'foo@bar.com',
+                    password: 'abc123',
+                },
+            },
         });
 
         submit(vm.$el.querySelector('form'));
@@ -59,7 +69,9 @@ describe('signin page', function() {
         expect(axios.post).to.have.been.calledWithMatch(
             '/api/givingteam/auth/signin',
             {
-                // @todo: add preventInitialization helpers and assert payload is correct
+                login: 'foo@bar.com',
+                password: 'abc123',
+                remember: false,
             }
         );
     });
