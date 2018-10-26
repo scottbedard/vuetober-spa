@@ -56,6 +56,26 @@ window.mount = factory();
 window.noop = () => {};
 
 //
+// prevent store interactions before a component is mounted
+//
+window.preventInitialActions = function (vm) {
+    const dispatch = stub(vm.$store, 'dispatch');
+
+    vm.$once('hook:mounted', dispatch.restore);
+};
+
+window.preventInitialMutations = function (vm) {
+    const commit = stub(vm.$store, 'commit');
+
+    vm.$once('hook:mounted', commit.restore);
+};
+
+window.preventInitialization = function (vm) {
+    preventInitialActions(vm);
+    preventInitialMutations(vm);
+};
+
+//
 // simulate an event
 //
 window.simulate = function (name, el, setupFn) {
