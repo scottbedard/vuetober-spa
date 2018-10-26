@@ -1,8 +1,17 @@
 import Vue from 'vue';
+import axios from 'axios';
 import modules from '@/app/store';
 import routes from '@/app/routes';
 import sinon from 'sinon';
 import { factory as spyfuVueFactory } from 'spyfu-vue-factory';
+
+//
+// test sandbox
+// these are reset after each test
+//
+window.sandbox = sinon.createSandbox();
+window.spy = sandbox.spy;
+window.stub = sandbox.stub;
 
 //
 // click an element
@@ -60,9 +69,43 @@ window.simulate = function (name, el, setupFn) {
 };
 
 //
-// test sandbox
-// this is cleaned up after each test
+// stub xhr requests
 //
-window.sandbox = sinon.createSandbox();
-window.spy = sandbox.spy;
-window.stub = sandbox.stub;
+window.stubRequests = function (requests = {}) {
+    Object.keys(requests).forEach((method) => {
+        if (axios[method]) {
+            Object.entries(requests[method] || {}).forEach(([endpoint, fixture]) => {
+                if (fixture === true) {
+                    // stub a success response
+                    axios[method].withArgs(endpoint).resolves();
+                } else if (fixture === false) {
+                    // stub a failure response
+                    axios[method].withArgs(endpoint).rejects();
+                } else if (typeof fixture === 'object') {
+                    // api for stubbing failed responses
+                    if (fixture.status === 200) {
+                        axios[method].withArgs(endpoint).resolves({ data: fixture.response() });
+                    } else {
+                        // api for stubbing failed responses
+                        axios[method].withArgs(endpoint).rejects({
+                            response: {
+                                status: fixture.status,
+                                data: fixture.response(),
+                            },
+                        });
+                    }
+                } else {
+                    // stub a fixed response
+                    axios[method].withArgs(endpoint).resolves({ data: fixture() });
+                }
+            });
+        }
+    });
+};
+
+//
+// submit a form
+//
+window.submit = function (el, setupFn) {
+    simulate('submit', el, setupFn);
+};
