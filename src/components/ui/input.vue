@@ -33,7 +33,7 @@ export default {
     render(h, context) {
         const bindings = bindAll(context);
         const inputBindings = { class: [], on: {} };
-        const { icon, placeholder, value } = context.props;
+        const { icon, placeholder, type, value } = context.props;
 
         // icon
         if (icon) {
@@ -60,6 +60,7 @@ export default {
                     class="bg-transparent p-4 w-full focus:outline-none"
                     domPropsValue={value}
                     placeholder={placeholder}
+                    type={type}
                     {...inputBindings}
                 />
             </div>
@@ -71,6 +72,9 @@ export default {
             type: String,
         },
         placeholder: {
+            type: String,
+        },
+        type: {
             type: String,
         },
         value: {
