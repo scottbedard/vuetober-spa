@@ -21,5 +21,6 @@ module.exports = {
         'max-len': 0,
         'no-console': isProduction ? 'error' : 'off',
         'no-debugger': isProduction ? 'error' : 'off',
+        'object-curly-newline': ['error', { multiline: true }],
     },
 };
