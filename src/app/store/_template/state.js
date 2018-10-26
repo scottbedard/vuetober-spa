@@ -1,6 +1,8 @@
 //
 // state
 //
-export default {
-
-};
+export default function () {
+    return {
+        // ...
+    };
+}

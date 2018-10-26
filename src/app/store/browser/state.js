@@ -1,9 +1,11 @@
 //
 // state
 //
-export default {
-    dimensions: {
-        height: 0,
-        width: 0,
-    },
-};
+export default function () {
+    return {
+        dimensions: {
+            height: 0,
+            width: 0,
+        },
+    };
+}
