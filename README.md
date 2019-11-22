@@ -3,6 +3,9 @@
 </p>
 
 <p align="center">
+    <a href="https://circleci.com/gh/scottbedard/vuetober-spa">
+        <img alt="Build Status" src="https://img.shields.io/circleci/build/github/scottbedard/vuetober-spa" />
+    </a>
     <a href="https://github.com/scottbedard/vuetober-spa/blob/master/LICENSE">
         <img alt="License" src="https://img.shields.io/github/license/scottbedard/oc-prerender-plugin?color=blue" />
     </a>
