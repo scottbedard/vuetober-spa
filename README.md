@@ -6,6 +6,12 @@
     <a href="https://circleci.com/gh/scottbedard/vuetober-spa">
         <img alt="Build Status" src="https://img.shields.io/circleci/build/github/scottbedard/vuetober-spa" />
     </a>
+    <a href="https://david-dm.org/scottbedard/vuetober-spa">
+        <img alt="Depdendencies" src="https://img.shields.io/david/scottbedard/vuetober-spa" />
+    </a>
+    <a href="https://david-dm.org/scottbedard/vuetober-spa?type=dev">
+        <img alt="Dev Depdendencies" src="https://img.shields.io/david/dev/scottbedard/vuetober-spa" />
+    </a>
     <a href="https://github.com/scottbedard/vuetober-spa/blob/master/LICENSE">
         <img alt="License" src="https://img.shields.io/github/license/scottbedard/oc-prerender-plugin?color=blue" />
     </a>
