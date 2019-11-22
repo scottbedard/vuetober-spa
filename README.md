@@ -2,6 +2,12 @@
     <img height="64px" src="http://i.imgur.com/Ia3H0Ae.png" />
 </p>
 
+<p align="center">
+    <a href="https://github.com/scottbedard/vuetober-spa/blob/master/LICENSE">
+        <img alt="License" src="https://img.shields.io/github/license/scottbedard/oc-prerender-plugin?color=blue" />
+    </a>
+</p>
+
 This repository is a pre-configured [Vuetober](https://github.com/scottbedard/vuetober) theme for building single page applications. It comes with the following features, and additional tooling can be added with [vue-cli](https://cli.vuejs.org).
 
 - Vuex & vue-router
@@ -34,6 +40,10 @@ yarn test:unit
 yarn lint
 ```
 
-## Customize configuration
+See the [vue-cli documentation](https://cli.vuejs.org/config/) for information on customizing the config.
 
-See [configuration reference](https://cli.vuejs.org/config/).
+## License
+
+Copyright (c) 2019-present, Scott Bedard
+
+[MIT](https://github.com/scottbedard/vuetober-spa/blob/master/LICENSE)
