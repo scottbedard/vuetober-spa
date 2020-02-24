@@ -10,5 +10,13 @@ import axios from 'axios';
  * @return {Promise}
  */
 export function postSignin(payload) {
-    return axios.post('/api/givingteam/auth/signin', payload);
+    return axios.post('/api/rainlab/user/auth/login', payload);
+}
+
+export function postRegister(payload) {
+    return axios.post('/api/user/users', payload);
+}
+
+export function getLogout() {
+    return axios.get('/api/rainlab/user/auth/logout');
 }
